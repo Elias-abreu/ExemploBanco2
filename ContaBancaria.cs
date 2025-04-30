@@ -1,11 +1,20 @@
 ﻿
 public class ContaBancaria
 {
-	public int id;
+	public int _id;
 	public string agencia;
 	public string Nconta;
 	public string nomePro;
 	public double saldo;
+
+	public ContaBancaria()
+	{
+		
+	}
+	public ContaBancaria(int id)
+	{
+		this._id = id;
+	}
 
 	public void Depositar(double valor)
 	{
@@ -14,8 +23,13 @@ public class ContaBancaria
 		}
 		else
 		{
-			Console.WriteLine("Valor inválido!");
+			throw new Exception("Valor inválido!"); // Lançando uma exceção
 		}
+	}
+
+	public void Depositar()
+	{
+
 	}
 	public void Sacar(double valor)
 	{
@@ -25,7 +39,7 @@ public class ContaBancaria
 		}
 		else
 		{
-			Console.WriteLine("Valor inválido!");
+			throw new Exception("Valor inválido!");
 		}
 	}
 }

@@ -1,6 +1,27 @@
-﻿/*Segundo commit*/
+﻿
+try
+{
+	ContaBancaria c2 = new ContaBancaria();
+	c2.Depositar(10);
+	c2.Depositar();
+	Console.WriteLine("Valor depositado!");
+}
+catch(Exception ex)
+{
+	Console.WriteLine(ex.Message);
+}
+finally
+{
+	Console.WriteLine("Vai passar aqui de qualquer forma!");
+}
+
+
+
+
+/*Segundo commit*/
 List<ContaBancaria> lista = new List<ContaBancaria> ();
 //tete
+int cont = 1;
 while (true)
 {
 	Console.WriteLine("Digite 1 para cadastrar um nova conta e 2 para listar todas");
@@ -8,9 +29,10 @@ while (true)
 
 	if(ops == 1)
 	{
-		ContaBancaria c1 = new ContaBancaria();
+		ContaBancaria c1 = new ContaBancaria(cont);
+		cont++;
 		Console.WriteLine("Digite o valor do ID");
-		c1.id = Convert.ToInt32(Console.ReadLine());
+		c1._id = Convert.ToInt32(Console.ReadLine());
 		Console.WriteLine("Digite a agência");
 		c1.agencia = Console.ReadLine();
 		Console.WriteLine("Digite o N da conta");
@@ -24,7 +46,7 @@ while (true)
 	{
 		foreach(ContaBancaria c in lista)
 		{
-			Console.WriteLine("ID "+c.id+" agência "+c.agencia+ " Número "+c.Nconta+" Saldo"+c.saldo);
+			Console.WriteLine("ID "+c._id+" agência "+c.agencia+ " Número "+c.Nconta+" Saldo"+c.saldo);
 		}
 	}
 	else
